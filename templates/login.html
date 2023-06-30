@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+   <div class="content-section">
+    <form method="POST" action="">
+        {{form.hidden_tag()}} <!--Needed for csrf and other stuff..Bas add kardho-->
+
+       
+
+        <div class="form-group">
+            {{form.email.label(class="form-check-label")}}
+            {{form.email(class="form-control form-control-lg")}}
+        </div>
+
+        <div class="form-group">
+            {{form.password.label(class="form-check-label")}}
+            {{form.password(class="form-control form-control-lg")}}
+        </div>
+
+        <div class="form-check">
+            {{form.remember(class="form-check-input ")}}
+            {{form.remember.label(class="form-check-label ")}}
+            
+        </div>
+
+        <div class="">
+            {{form.submit(class='btn btn-info')}}
+        </div>
+        <small class="text-muted">
+            <a href="#">Forgot Password?</a>
+        </small>
+
+    </form>
+    <small>
+        Need an Account?
+    <a href="{{url_for('register')}}">Register</a>
+    </small>
+
+   </div>
+
+{% endblock content %}

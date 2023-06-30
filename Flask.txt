@@ -1,0 +1,46 @@
+The info about flask is added here....
+
+L-1
+cmd to run... python -m flask run  (be in the same directory)
+
+L-2 
+Adding Templates
+templates r simply the html pages that u wanna show...Create a templates folder 
+
+
+
+To use that templates...import render_template fn... render_template('file')
+Now the webpages just dont have static info..They do have dynamic data toooo
+To send the dynamic info from the flask app to html...add posts argument to the render_template fn
+{%%} -> for code... {{}} for content
+Check the title head..if title is passed, then it is shown as title, else the def is shown
+
+  {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title> Default  Title </title>
+    {%endif%}
+
+=>You can see that most of the content of home n about pages is same....So to keep the same data
+in one file n only unique data in home n about pages....create layout.html
+Move common code into layout....use block content  which can override the layout page block content
+with the home n about pages block block content...
+
+In flask static files like css n js should be stored in static directory...use url_for to add the files
+
+Forms...We will use the wtf package of flask that helps us in easy creation of the forms n work on in
+
+pip install flask-wtf
+
+lets make a new file..
+One shot---
+everything is class in the forms.py
+create the reg an dlogin classes and inheirt Flaskform
+let create the fields u want and add validators
+Now in main py file, Make routes, call the class and render them on page
+add form.hidden_tag just to prevent csrf...Go on...rest is understandable
+flash msgs in the layout page...If flash msgs are defined te it goes like that...
+thats it..
+----
+
+flash msg is one time msg...goes after refreshing
